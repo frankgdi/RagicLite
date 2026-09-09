@@ -17,13 +17,14 @@
 
 ---
 
-## 採用 Clean Architecture 概念簡化分層：
-
+## Clean Architecture 概念簡化分層：
+```text
 RagicLite/
 ├── RagicLite.Domain/          # 核心領域實體 (Sheet, Field, Record, FieldType)
 ├── RagicLite.Infrastructure/  # EF Core 資料庫上下文與遷移 (AppDbContext)
 ├── RagicLite.Application/     # 業務邏輯、DTO 與動態驗證引擎 (DynamicValidator)
 └── RagicLite.WebApi/          # RESTful API 端點與 Swagger 文件
+```
 
 ## 系統架構設計 (System Architecture)
 
