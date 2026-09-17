@@ -1,0 +1,69 @@
+@host = http://localhost:8080
+
+### Health
+GET {{host}}/health
+
+### 建立 Table 與初始 Fields
+# @name createTable
+POST {{host}}/api/tables
+Content-Type: application/json
+
+{
+  "name": "專案追蹤",
+  "fields": [
+    {
+      "fieldKey": "name",
+      "label": "專案名稱",
+      "type": "text",
+      "required": true,
+      "maxLength": 100
+    },
+    {
+      "fieldKey": "score",
+      "label": "分數",
+      "type": "number",
+      "required": false,
+      "numberMode": "integer",
+      "min": 0,
+      "max": 100
+    },
+    {
+      "fieldKey": "due_date",
+      "label": "到期日",
+      "type": "date",
+      "required": false
+    },
+    {
+      "fieldKey": "status",
+      "label": "狀態",
+      "type": "singleSelect",
+      "required": true,
+      "options": [
+        { "value": "active", "label": "進行中", "isActive": true },
+        { "value": "done", "label": "已完成", "isActive": true }
+      ]
+    }
+  ]
+}
+
+### 請將 createTable 回應中的 id 貼到這裡
+@tableId = 00000000-0000-0000-0000-000000000000
+
+### 新增 Record
+POST {{host}}/api/tables/{{tableId}}/records
+Content-Type: application/json
+
+{
+  "data": {
+    "name": "TableMint MVP",
+    "score": 95,
+    "due_date": "2026-12-31",
+    "status": "active"
+  }
+}
+
+### 分頁、排序及型態化篩選
+GET {{host}}/api/tables/{{tableId}}/records?page=1&pageSize=20&sortBy=createdAt&sortDirection=descending&filterField=score&filterValue=95
+
+### Swagger UI
+GET {{host}}/swagger

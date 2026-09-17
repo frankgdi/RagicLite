@@ -1,0 +1,9 @@
+<Solution>
+  <Project Path="TableMint.Application.Tests/TableMint.Application.Tests.csproj" />
+  <Project Path="TableMint.Application/TableMint.Application.csproj" />
+  <Project Path="TableMint.Domain/TableMint.Domain.csproj" />
+  <Project Path="TableMint.Infrastructure.Tests/TableMint.Infrastructure.Tests.csproj" />
+  <Project Path="TableMint.Infrastructure/TableMint.Infrastructure.csproj" />
+  <Project Path="TableMint.WebApi.Tests/TableMint.WebApi.Tests.csproj" />
+  <Project Path="TableMint.WebApi/TableMint.WebApi.csproj" />
+</Solution>
